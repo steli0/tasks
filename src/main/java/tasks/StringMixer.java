@@ -1,7 +1,5 @@
 package tasks;
 
-import java.util.Arrays;
-
 public class StringMixer {
 	public static void main(String[] args) {
 		System.out

@@ -2,12 +2,9 @@ package tasks;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
- *
  * @author Stelio
- *
  */
 public class IntervalMerger {
 	public static void main(String[] args) {
@@ -22,7 +19,7 @@ public class IntervalMerger {
 		};
 
 		for (Range range : getMergeRanges(ranges)) {
-			System.out.println(range.toString());
+			System.out.printf("%s ", range.toString());
 		}
 
 	}
@@ -33,30 +30,19 @@ public class IntervalMerger {
 		}
 
 		ArrayList<Range> rangesList = new ArrayList<Range>(Arrays.asList(ranges));
-		int tempStart, tempEnd;
 
 		for (int i = 0; i < rangesList.size()- 1; i++) {
-
 			for (int j = i + 1; j < rangesList.size(); j++) {
-
 				if ((rangesList.get(i).start > rangesList.get(j).start && rangesList.get(i).start < rangesList.get(j).end) ||
 						(rangesList.get(j).start > rangesList.get(i).start && rangesList.get(j).start < rangesList.get(i).end)) {
 
 					if (rangesList.get(i).start < rangesList.get(j).start) {
-						tempStart = rangesList.get(i).start;
-					} else {
-						tempStart = rangesList.get(j).start;
+						rangesList.get(j).start = rangesList.get(i).start;
 					}
 
 					if (rangesList.get(i).end > rangesList.get(j).end) {
-						tempEnd = rangesList.get(i).end;
-					} else {
-						tempEnd = rangesList.get(j).end;
+						rangesList.get(j).end = rangesList.get(i).end;
 					}
-
-					Range tempRange = rangesList.get(j);
-					tempRange.start = tempStart;
-					tempRange.end = tempEnd;
 
 					rangesList.remove(i);
 					i--;
@@ -88,8 +74,5 @@ public class IntervalMerger {
 			Range other = (Range) obj;
 			return this.start == other.start && this.end == other.end;
 		}
-
-
-
 	}
 }
