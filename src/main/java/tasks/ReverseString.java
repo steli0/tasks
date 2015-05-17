@@ -11,7 +11,7 @@ public class ReverseString {
 	static String m = "";
 
 	public static void main(String[] args) {
-		reverse("string");
+		System.out.println(reverse("there are no strings on me"));
 	}
 
 	public static String reverse(String s) {
