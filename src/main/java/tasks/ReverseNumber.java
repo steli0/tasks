@@ -8,6 +8,10 @@ package tasks;
  *
  */
 public class ReverseNumber {
+    
+    public static void main(String[] args) {
+        System.out.println(reverse(23431));
+    }
 
 	public static int reverse(int num) {
 		int reversed = 0;
